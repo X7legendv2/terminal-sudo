@@ -1,0 +1,46 @@
+import random
+
+print("Добро пожаловать!")
+
+plasma = random.randint(1, 10)
+name = None
+list_command = ("register", "sudo", "plasma", "whoami", "help", "exit")
+
+while True:
+    command = input("\nChoose the command: ").lower().strip()
+    
+    if command == "register":
+        name = input("Создайте аккаунт: ")
+        print(f"Пользователь {name} создан!")
+        print(f"DEBUG: {name}, {command}")
+
+    elif command == "sudo":
+        if name is None:
+            print("Сначала регистрация!")
+        else:
+            print("sudo -h | -K | -k | -V")
+           
+    elif command == "plasma":
+        if name is None:
+            print("Сначала регистрация!")
+        else:
+            print(plasma)
+
+    elif command == "whoami":
+        if name is None:
+            print("Сначала регистрация!")
+        else:
+            print(name)
+            
+    elif command == "help":
+        if name is None:
+            print("Сначала регистрация!")
+        else:
+            print(list_command)
+    
+    elif command == "exit":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Неизвестная команда. Доступно: register, sudo, plasma, whoami, help, exit")
